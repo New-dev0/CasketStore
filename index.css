@@ -1,0 +1,18 @@
+body {
+    background-color: aliceblue;
+}
+
+.orderbutton {
+    font-size: 25px;
+    width: min-content;
+    min-width: 14rem;
+    align-self: center;
+}
+
+.subhead {
+    font-family: 'Galdeano', sans-serif;
+}
+
+main {
+    padding-bottom: 5rem;
+}

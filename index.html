@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Casket: Order Now
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Galdeano&display=swap" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+</head>
+
+<script>
+    const timeout = 5000;
+
+    function replaceImage() {
+        const images = ["https://img.icons8.com/?size=512&id=96702&format=png", "https://media.gettyimages.com/videos/tombstones-on-a-spooky-misty-graveyard-full-moon-at-night-video-id472864695?s=640x640", "gif"];
+        const random = images[Math.floor(Math.random() * images.length)];
+        const gifElement = document.getElementById("gif");
+        const imgElement = document.getElementById("zombieImg");
+
+        if (random == "gif") {
+            gifElement.classList.replace("visually-hidden", "visible");
+            imgElement.classList.replace("visible", "visually-hidden");
+        }
+        else {
+            if (gifElement.classList.contains("visible")) {
+                gifElement.classList.replace("visible", "visually-hidden");
+            };
+            imgElement.classList.contains("visually-hidden") && imgElement.classList.replace("visually-hidden", "visible");
+            imgElement.setAttribute("src", random);
+        };
+        setTimeout(replaceImage, timeout);
+    }
+
+    setTimeout(replaceImage, timeout);
+
+    const defaultText = "This is a site made for fun, dude!"
+
+    function onButtonClick() {
+        const urlParams = new URLSearchParams(document.location.search);
+        alert(urlParams.get("text") || defaultText)
+    }
+</script>
+
+<body>
+    <main>
+        <div class="d-flex justify-content-center">
+            <div class="text-center mt-4">
+                <h1 class="fw-bolder align-self-center flex-column justify-content-center">
+                    ⚰️ Casket Store</h1>
+                <h4 class="subhead">Pre Order in Advance and make your biggest saving.</h4>
+                <div class="d-flex col">
+                    <iframe class="visible" id="gif" src="https://i.giphy.com/media/JsiJZhhqegSSnYIm3M/giphy.webp"
+                        width="480" height="480">
+                    </iframe>
+                    <img id="zombieImg" class="visually-hidden" width="480" height="480" />
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center mt-lg-5 text-center">
+            <div class="font-monospace">
+                <p><span class="badge text-bg-success">BARD</span> Casket Price will be around <span
+                        class="badge text-bg-danger">$3000</span> in 2050<br />
+                    Place a Order and we will bury you to the moon 🌔.
+                </p>
+            </div>
+            <div class="flex-row row justify-content-center align-items-center">
+                <h4 class="fw-bolder w-auto mt-4" style="font-size: 28px;">$1200</h4>
+                <button type="button" class="btn mt-3 btn-dark font-monospace orderbutton ms-3"
+                    onclick="onButtonClick()">
+                    Order Now
+                </button>
+
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>
